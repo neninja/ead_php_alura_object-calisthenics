@@ -22,7 +22,7 @@ class Student
 
     public function __construct(Email $email, DateTimeInterface $bd, string $fName, string $lName, string $street, string $number, string $province, string $city, string $state, string $country)
     {
-        $this->watchedVideos = new Map();
+        $this->watchedVideos = new WatchedVideos();
         $this->email = $email;
         $this->bd = $bd;
         $this->fName = $fName;
@@ -61,11 +61,17 @@ class Student
             return true;
         }
 
-        $this->watchedVideos->sort(fn (DateTimeInterface $dateA, DateTimeInterface $dateB) => $dateA <=> $dateB);
-        /** @var DateTimeInterface $firstDate */
-        $firstDate = $this->watchedVideos->first()->value;
+        $firstDate = $this->watchedVideos->dateOfFirstVideo();
         $today = new \DateTimeImmutable();
 
         return $firstDate->diff($today)->days < 90;
+    }
+
+    public function age()
+    {
+        $today = new \DateTimeImmutable();
+        $dateInterval = $this->bd->diff($today);
+
+        return $dateInterval->y;
     }
 }

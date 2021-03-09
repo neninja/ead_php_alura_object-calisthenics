@@ -17,18 +17,18 @@ class WatchedVideos implements \Countable
 
     public function add(Video $video, DateTimeInterface $date)
     {
-        $this->$videos->put($video, $date);
+        $this->videos->put($video, $date);
     }
 
     public function count(): int
     {
-        $this->videos->count();
+        return $this->videos->count();
     }
 
     public function dateOfFirstVideo(){
 
         $this
-            ->videdos
+            ->videos
             ->sort(fn(DateTimeInterface $dateA, DateTimeInterface $dateB) => $dateA <=> $dateB);
 
         return $this->videos->first()->value;
