@@ -4,3 +4,6 @@
     - Tell, don't ask
     > Tell: peça por uma funcionalidade. Ask: peça uma informação para realizar uma funcionalidade.
 2. Ter apenas 1 nível de indentação por método
+3. Nunca use `else`
+    - Cogite o *early return* ou *guard clauses*
+    - Sempre tentar falhar rápido (*fail fast*)
