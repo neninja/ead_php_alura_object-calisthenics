@@ -4,29 +4,28 @@ namespace Alura\Calisthenics\Domain\Video;
 
 class Video
 {
-    public const PUBLIC = 1;
-    public const PRIVATE = 2;
+    private bool $visible = false;
 
-    private int $visibility = self::PRIVATE;
     private int $ageLimit;
-
-    public function getVisibility(): int
-    {
-        return $this->visibility;
-    }
 
     public function publish(): void
     {
-        $this->visibility = self::PUBLIC;
+        $this->visible = true;
+    }
+
+    public function getVisibility(): int
+    {
+        return $this->visible;
+    }
+
+    public function isPublic(): bool
+    {
+        return $this->visible;
     }
 
     public function checkIfVisibilityIsValidAndUpdateIt(int $visibility): void
     {
-        if (in_array($visibility, [self::PUBLIC, self::PRIVATE])) {
-            $this->visibility = $visibility;
-        } else {
             throw new \InvalidArgumentException('Invalid visibility');
-        }
     }
 
     public function getAgeLimit(): int
