@@ -12,3 +12,4 @@
 6. Apenas 1 ponto por ~~linha~~ instrução
     - Evitar adentrar outras classes, dentro de outras classes ad infinito 
     > Não fale com estranhos ([Law of Demeter](http://wiki.c2.com/?LawOfDemeter)) - salvo em caso de *fluent interface* (`$sql->select('')->from('')->where('')`)
+7. Nunca abrevie
