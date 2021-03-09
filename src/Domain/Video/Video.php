@@ -15,6 +15,11 @@ class Video
         return $this->visibility;
     }
 
+    public function publish(): void
+    {
+        $this->visibility = self::PUBLIC;
+    }
+
     public function checkIfVisibilityIsValidAndUpdateIt(int $visibility): void
     {
         if (in_array($visibility, [self::PUBLIC, self::PRIVATE])) {
