@@ -8,3 +8,4 @@
     - Cogite o *early return* ou *guard clauses*
     - Sempre tentar falhar rápido (*fail fast*)
 4. Envolva seus tipos primitivos ~~caso eles tenham comportamento~~
+5. Coleções de primeira classe

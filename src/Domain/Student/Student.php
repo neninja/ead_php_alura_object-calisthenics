@@ -5,13 +5,12 @@ namespace Alura\Calisthenics\Domain\Student;
 use Alura\Calisthenics\Domain\Email\Email;
 use Alura\Calisthenics\Domain\Video\Video;
 use DateTimeInterface;
-use Ds\Map;
 
 class Student
 {
     private Email $email;
     private DateTimeInterface $bd;
-    private Map $watchedVideos;
+    private WatchedVideos $watchedVideos;
     private string $fName;
     private string $lName;
     public string $street;
@@ -53,7 +52,7 @@ class Student
 
     public function watch(Video $video, DateTimeInterface $date)
     {
-        $this->watchedVideos->put($video, $date);
+        $this->watchedVideos->add($video, $date);
     }
 
     public function hasAccess(): bool
